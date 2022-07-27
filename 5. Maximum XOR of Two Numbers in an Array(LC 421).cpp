@@ -40,12 +40,12 @@ class Trie{
         TrieNode *node = root;
         int maxNum = 0;
         for(int i = 31; i>=0; i--){
-            int bit = (num >> i) & 1, newBit = bit;
+            int bit = (num >> i) & 1;
             if(node->containsKey(1-bit)){
                 maxNum += (1 << i);
-                newBit = 1 - bit;
+                bit = 1 - bit;
             }
-            node = node->get(newBit);
+            node = node->get(bit);
         }
         return maxNum;
     }
